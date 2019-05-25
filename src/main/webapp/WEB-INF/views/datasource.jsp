@@ -11,7 +11,15 @@
     <title>Title</title>
 </head>
 <body>
-${driverClassName}
-${username}
+driverClassName : ${driverClassName}
+username : ${username}
+
+===============================================
+@GetMapping("/datasource")
+public String datasource(Model model) {
+    model.addAttribute("driverClassName", hikariConfig.getDriverClassName());
+    model.addAttribute("username", hikariConfig.getUsername());
+    return "datasource";
+}
 </body>
 </html>
