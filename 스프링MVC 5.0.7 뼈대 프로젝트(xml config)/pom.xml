@@ -17,7 +17,7 @@
         <!-- Web -->
         <jsp.version>2.2</jsp.version>
         <jstl.version>1.2</jstl.version>
-        <servlet.version>3.0.1</servlet.version>
+        <servlet.version>3.1.0</servlet.version>
 
         <!-- Spring -->
         <spring-framework.version>5.0.7.RELEASE</spring-framework.version>
@@ -34,10 +34,12 @@
         <log4jdbc-log4j2-jdbc4.version>1.16</log4jdbc-log4j2-jdbc4.version>
         <!-- Test -->
         <junit.version>4.12</junit.version>
+        <assertj-core.version>3.12.2</assertj-core.version>
+
+        <jackson-databind.version>2.9.4</jackson-databind.version>
 
         <lombok.version>1.18.2</lombok.version>
-        <jackson-databind.version>2.9.4</jackson-databind.version>
-        <assertj-core.version>3.12.2</assertj-core.version>
+
     </properties>
 
     <dependencies>
@@ -128,7 +130,7 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>${assertj-core.version}</version>
+            <version>${assertj-core.version</version>
             <scope>test</scope>
         </dependency>
 
@@ -168,12 +170,12 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                     <compilerArgument>-Xlint:all</compilerArgument>
-                    <showWarnings>true</showWarnings>
+                    <showWarning>true</showWarning>
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
-
-            <plugin>
+	<!-- for java config        
+	    <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.1.0</version>
@@ -181,6 +183,8 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
+            -->
+
         </plugins>
     </build>
 </project>
