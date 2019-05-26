@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.bactoria.part3.mapper.BoardMapper">
+
+    <select id="findAll" resultType="me.bactoria.part3.domain.board.BoardVO">
+        <![CDATA[
+
+                    SELECT *
+                    FROM tbl_board
+                    WHERE bno > 0
+
+        ]]>
+    </select>
+
+    <insert id="save">
+            INSERT INTO tbl_board (bno, title, content, writer)
+            VALUES(seq_board.nextval, #{title}, #{content}, #{writer})
+    </insert>
+
+    <insert id="insertSelectKey">
+        <selectKey keyProperty="bno" order="BEFORE" resultType="long">
+            SELECT seq_board.nextval
+            FROM dual
+        </selectKey>
+
+        INSERT INTO tbl_board (bno, title, content, writer)
+        VALUES(#{bno}, #{title}, #{content}, #{writer})
+    </insert>
+
+    <select id="findById" resultType="me.bactoria.part3.domain.board.BoardVO">
+        SELECT *
+        FROM tbl_board
+        WHERE bno = #{bno}
+    </select>
+
+    <update id="update">
+        UPDATE tbl_board
+        SET title = #{title},
+            content = #{content},
+            writer = #{writer},
+            updatedate = sysdate
+        WHERE BNO = #{bno}
+    </update>
+
+    <delete id="deleteById">
+        DELETE
+        FROM tbl_board
+        WHERE bno = #{bno}
+    </delete>
+</mapper>
