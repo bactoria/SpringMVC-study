@@ -36,7 +36,7 @@
         <junit.version>4.12</junit.version>
         <assertj-core.version>3.12.2</assertj-core.version>
 
-        <jackson-databind.version>2.9.4</jackson-databind.version>
+        <jackson-databind.version>2.12.7.1</jackson-databind.version>
 
         <lombok.version>1.18.2</lombok.version>
 
